@@ -52,10 +52,20 @@ public class TextFilesService {
                         .build());
 
         if (b != null){
-            return b.getName() + " uploaded successfully.";
+            return b.getName() + " updated successfully.";
         }
 
         return null;
+    }
+
+    public String delete(long id){
+        try{
+            this.REPO.deleteById(id);
+            return "Delete Successful";
+        } catch (Exception e){
+            System.out.println(e.getMessage());
+            return "File does not exist";
+        }
     }
 
 }
